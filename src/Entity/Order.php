@@ -21,6 +21,9 @@ class Order
      * @var Collection<int, Product>
      */
     #[ORM\ManyToMany(targetEntity: Product::class)]
+    #[ORM\JoinTable(name: "orders_products")]
+    #[ORM\JoinColumn(name: "order_uuid", referencedColumnName: "uuid")]
+    #[ORM\InverseJoinColumn(name: "product_id", referencedColumnName: "id")]
     private Collection $products;
 
     #[ORM\Column]

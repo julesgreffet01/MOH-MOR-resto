@@ -2,9 +2,9 @@
 
 namespace App\Enum;
 
-enum ProductState: int
+enum ProductState: string
 {
-    case BOISSON = 1;
-    case BURGER = 2;
-    case ACCOMPAGNEMENT = 3;
+    case BOISSON = 'boisson';
+    case BURGER = 'burger';
+    case ACCOMPAGNEMENT = 'accompagnement';
 }

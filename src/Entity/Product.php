@@ -21,8 +21,8 @@ class Product
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column(name: 'type_id', enumType: ProductState::class)]
-    private ?ProductState $type = null;
+    #[ORM\Column(name: 'state', enumType: ProductState::class)]
+    private ?ProductState $state = null;
 
     public function getId(): ?int
     {
@@ -55,12 +55,12 @@ class Product
 
     public function getType(): ?ProductState
     {
-        return $this->type;
+        return $this->state;
     }
 
     public function setType(ProductState $type): static
     {
-        $this->type = $type;
+        $this->state = $type;
 
         return $this;
     }
