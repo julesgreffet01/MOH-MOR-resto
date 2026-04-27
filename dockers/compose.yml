@@ -35,8 +35,6 @@ services:
     nginx:
         image: nginx:latest
         container_name: nginx_resto_burger
-        ports:
-            - "8000:80"
         volumes:
             - ../public:/var/www/public
             - ./nginx.conf:/etc/nginx/conf.d/default.conf
