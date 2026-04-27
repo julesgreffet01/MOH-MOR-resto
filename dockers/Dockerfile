@@ -31,7 +31,7 @@ WORKDIR /var/www
 COPY composer.json composer.lock ./
 
 # Installer les dépendances (cache Docker optimisé)
-RUN composer install --optimize-autoloader --no-scripts
+RUN composer install --optimize-autoloader --no-scripts --dev
 
 # Copier le reste du projet
 COPY . .
