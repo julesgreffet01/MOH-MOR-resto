@@ -8,7 +8,7 @@ services:
     container_name: resto_burger
     volumes:
       - symfony_data:/var/www
-      - ./php-fpm.conf:/usr/local/etc/php-fpm.d/docker.conf
+      - ./php-fpm-moh-mor.conf:/usr/local/etc/php-fpm.d/docker.conf
     networks:
       resto_network:
         ipv4_address: 172.28.0.20
