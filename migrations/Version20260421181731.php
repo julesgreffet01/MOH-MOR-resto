@@ -20,7 +20,7 @@ final class Version20260421181731 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE "orders" (uuid UUID NOT NULL, is_payed BOOLEAN NOT NULL, is_finish BOOLEAN NOT NULL, PRIMARY KEY (uuid))');
+        $this->addSql('CREATE TABLE "orders" (uuid UUID NOT NULL, is_finish BOOLEAN NOT NULL, PRIMARY KEY (uuid))');
         $this->addSql('CREATE TABLE orders_products (order_uuid UUID NOT NULL, product_id INT NOT NULL, PRIMARY KEY (order_uuid, product_id))');
         $this->addSql('CREATE INDEX IDX_749C879C9C8E6AB1 ON orders_products (order_uuid)');
         $this->addSql('CREATE INDEX IDX_749C879C4584665A ON orders_products (product_id)');
