@@ -37,6 +37,6 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts
 COPY . .
 
 # Permissions Symfony
-RUN chown -R www-data:www-data /var/www/var
+RUN chown -R www-data:www-data /var/www/
 
 CMD ["php-fpm"]
