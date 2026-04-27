@@ -34,7 +34,7 @@ services:
 
     nginx:
         image: nginx:latest
-        container_name: symfony_nginx
+        container_name: nginx_resto_burger
         ports:
             - "8000:80"
         volumes:
