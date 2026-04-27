@@ -43,12 +43,9 @@ final class OrderController extends AbstractController
         }
 
         $order = new Order();
-        $price = 0;
         $order->setIsFinish(false);
-        $order->setIsPayed(false);
 
         foreach ($products as $product) {
-            $price += $product->getPrice();
             $order->addProduct($product);
         }
 
@@ -58,8 +55,24 @@ final class OrderController extends AbstractController
             'message' => 'Order created',
             'data' => [
                 'id' => $order->getUuid(),
-                'price' => $price
             ]
+        ]);
+    }
+
+    #[Route('/order/{uuid}', name: 'order_finish', methods: ['DELETE'])]
+    public function delete(string $uuid): JsonResponse{
+        $order = $this->orderRepository->findOneBy(['uuid' => $uuid]);
+        if(!$order) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Order not found'
+            ]);
+        }
+        $order->setIsFinish(true);
+        $this->orderRepository->save($order);
+        return $this->json([
+            'success' => true,
+            'message' => 'Order finished',
         ]);
     }
 }

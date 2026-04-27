@@ -26,6 +26,17 @@ class OrderRepository extends ServiceEntityRepository
         }
     }
 
+    public function getPrice(string $orderUuid): int{
+        return $this->createQueryBuilder('o')
+            ->select('SUM(p.price) as total')
+            ->innerJoin('o.products', 'p')
+            ->where('o.uuid = :orderId')
+            ->setParameter('orderId', $orderUuid)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+
 //    /**
 //     * @return Order[] Returns an array of Order objects
 //     */

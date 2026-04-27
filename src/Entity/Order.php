@@ -27,9 +27,6 @@ class Order
     private Collection $products;
 
     #[ORM\Column]
-    private ?bool $isPayed = null;
-
-    #[ORM\Column]
     private ?bool $isFinish = null;
 
     public function __construct()
@@ -65,18 +62,6 @@ class Order
     public function removeProduct(Product $product): static
     {
         $this->products->removeElement($product);
-
-        return $this;
-    }
-
-    public function isPayed(): ?bool
-    {
-        return $this->isPayed;
-    }
-
-    public function setIsPayed(bool $isPayed): static
-    {
-        $this->isPayed = $isPayed;
 
         return $this;
     }

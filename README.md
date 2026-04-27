@@ -1,6 +1,10 @@
 ## Commandes a lancer
 
 ```shell
+    docker exec -it resto_burger sh
+```
+
+```shell
     php bin/console doctrine:migrations:migrate 
 ```
 Puis :
